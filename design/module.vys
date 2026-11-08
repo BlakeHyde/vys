@@ -1,0 +1,8 @@
+(module intent
+  (file "./000_intent.md"))
+
+(module cli
+  (file "./001_cli.md")
+  (depends (. intent)))
+
+(publish (from (. intent)) (from (. cli)))

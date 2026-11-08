@@ -1,0 +1,14 @@
+[package]
+name = "vys-cli"
+version = "0.1.0"
+edition = "2024"
+description = "Collect, validate, and visualize vys module scopes"
+license = "GPL-3.0-only"
+repository = "https://github.com/BlakeHyde/vys"
+
+[[bin]]
+name = "vys"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }

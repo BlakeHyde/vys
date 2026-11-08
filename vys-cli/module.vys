@@ -1,0 +1,34 @@
+(module package
+  (file "./Cargo.toml")
+  (file "./Cargo.lock")
+  (file "./.gitignore"))
+
+(module forms
+  (file "./src/forms.rs"))
+
+(module syntax
+  (file "./src/syntax.rs")
+  (file "./src/syntax/sexpr.rs")
+  (depends (. forms)))
+
+(module project
+  (file "./src/project.rs")
+  (depends (. forms)))
+
+(module discovery
+  (file "./src/discovery.rs")
+  (depends (. forms) (. project)))
+
+(module main
+  (file "./src/main.rs")
+  (depends (. forms) (. syntax) (. project) (. discovery) (. package)))
+
+(module tests
+  (file "./tests/cli.rs")
+  (depends (. main)))
+
+(module docs
+  (file "./README.md")
+  (depends (. main)))
+
+(publish (from (. main)) (from (. docs)))
