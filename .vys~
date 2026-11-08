@@ -1,3 +1,0 @@
-(directory
- (read-scope 'public)
- (write-scope 'project-meta))
